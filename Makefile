@@ -5,4 +5,4 @@ IMAGE_TAG ?= latest
 
 .PHONY: push_image
 push_image:
-  @docker build -t $(CR)/$(IMAGE_NAME):$(IMAGE_TAG) --push .
+	@docker build -t $(CR)/$(IMAGE_NAME):$(IMAGE_TAG) --push .
