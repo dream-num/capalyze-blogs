@@ -1,0 +1,21 @@
+{
+  "name": "Capalyze Blog",
+  "short_name": "Capalyze Blog",
+  "description": "Capalyze Blog shares insights, tips, and case studies on turning scattered data into intelligent, data-driven decisions with AI-powered analysis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
