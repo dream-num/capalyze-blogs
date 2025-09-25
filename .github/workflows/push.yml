@@ -64,7 +64,7 @@ jobs:
 
       - uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.GH_ACCESS_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           repository: dream-num/helm-chart-private
           event-type: ${{ vars.DISPATCH_EVENT_TYPE }}
           client-payload: '{"service":"${{ inputs.service }}","tag":"${{ env.IMAGE_TAG }}","feature":"${{ env.FEATURE }}"}'
