@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     if: ${{ !inputs.image-tag }}
+    env:
+      CR: univer-acr-registry.cn-shenzhen.cr.aliyuncs.com
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,7 +32,7 @@ jobs:
       - name: Login to Aliyun Container Registry (ACR)
         uses: aliyun/acr-login@v1
         with:
-          login-server: univer-acr-registry.cn-shenzhen.cr.aliyuncs.com
+          login-server: ${{ env.CR }}
           region-id: cn-shenzhen
           username: "${{ secrets.REGISTRY_USERNAME }}"
           password: "${{ secrets.REGISTRY_PASSWORD }}"
@@ -38,7 +40,7 @@ jobs:
       - name: Build and Push Universer Image
         run: |
           IMAGE_TAG=$(echo "${{ github.sha }}" | cut -c 1-7)
-          make push_image IMAGE_TAG=$IMAGE_TAG CR=${{ env.CR }}
+          make push_image IMAGE_TAG=$IMAGE_TAG CR=$CR
 
 
   deploy-k8s:
